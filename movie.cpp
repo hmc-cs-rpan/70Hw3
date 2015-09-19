@@ -93,3 +93,8 @@ void Movie::display()
     // of the screen.
 
 }
+
+void Movie::addSprite(Sprite& newSprite)
+{
+    Movie::mySprite_ = newSprite;
+}

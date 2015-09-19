@@ -44,10 +44,18 @@ public:
      */
     void display();
 
+    /**
+     * \brief Adds a sprite to our movie
+     * \post Stores the sprite in the mySprite_ variable
+     * \return none
+     */
+    void addSprite(Sprite& newSprite);
+
 private:
     // The sprite to display in this movie.
-
+    Sprite mySprite_;
     // The characters to display on the screen.
+    char movieArray[WIDTH*HEIGHT];
 };
 
 #endif // ifndef MOVIE_HPP_INCLUDED

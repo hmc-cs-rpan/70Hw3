@@ -43,11 +43,38 @@ public:
      */
     void loadImage(const std::string& fname);
 
+    /**
+     * \brief Accessor function to the sprite's x location.
+     * \returns Returns a size_t containing the sprite's x location.
+     */
+    size_t getXLocation();
+
+    /**
+     * \brief Accessor function to the sprite's y location.
+     * \return Returns a size_t containing the sprite's y location.
+     */
+    size_t getYLocation();
+
+    /**
+     * \brief Accessor function to the sprite's character array.
+     * \return Returns the character at a specified row and column.
+     */
+    char getCharAt(size_t row, size_t col);
+
+    /**
+     * \brief Modifer function to change the sprite's location.
+     * \ pre Sprite has an arbitrary location.
+     * \ post Sprite's location changes to user-specified location.
+     * \ return none
+     */
+    void setLocation(size_t x, size_t y);
 
 private:
-    // Current location of the sprite on the screen.
-
+    // Current location of the sprite on the screen in (x, y) form.
+    size_t xvalue = 0;
+    size_t yvalue = 0;
     // Characters to display on the screen for this sprite
+    char spriteArray[WIDTH*HEIGHT];
 
 };
 

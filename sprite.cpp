@@ -27,7 +27,7 @@ void Sprite::loadImage(const std::string& fname)
     for (size_t i = 0; i < Sprite::WIDTH * Sprite::HEIGHT; ++i) {
         ch = inputFile.get();
         if (inputFile.good()) {
-               // FIXME: Do something here with the character array.
+            Sprite::spriteArray[i] = ch;
         }
     }
     inputFile.close();
@@ -37,4 +37,26 @@ void Sprite::loadImage(const std::string& fname)
 void Sprite::update() 
 {
     // Does nothing for now.
+}
+
+size_t Sprite::getXLocation()
+{
+    return Sprite::xvalue;
+}
+
+size_t Sprite::getYLocation()
+{
+    return Sprite::yvalue;
+}
+
+char Sprite::getCharAt(size_t row, size_t col)
+{
+    size_t location = row * Sprite::WIDTH + col;
+    return Sprite::spriteArray[location];
+}
+
+void Sprite::setLocation(size_t x, size_t y)
+{
+    Sprite::xvalue = x;
+    Sprite::yvalue = y;
 }
