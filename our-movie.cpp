@@ -19,6 +19,15 @@ using namespace std;
 
 void makeOurMovie() 
 {
+	Sprite mySprite;
+
+	mySprite.loadImage("img/mystery1.txt");
+	mySprite.setLocation(30,10);
+
+	Movie myMovie;
+	myMovie.addSprite(mySprite);
+
+	myMovie.play();
 
 }
 

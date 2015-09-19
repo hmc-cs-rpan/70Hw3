@@ -22,9 +22,26 @@ using namespace std;
 void Movie::updateContents() 
 {
     // Clear the character array by writing a space to each element
-
+    for(size_t i = 0; i < Movie::WIDTH * Movie::HEIGHT; ++i)
+    {
+        Movie::movieArray[i] = ' ';
+    }
     // Loop through all of the characters in the sprite and copy them to 
     // the right spot in the movie's character array.
+
+    size_t mySpriteX = mySprite_.getXLocation();
+    size_t mySpriteY = mySprite_.getYLocation();
+
+    for(size_t row = 0; row < Sprite::HEIGHT; ++row)
+    {
+        for(size_t col = 0; col < Sprite::WIDTH; ++col)
+        {
+            char ch = mySprite_.getCharAt(row, col);
+            size_t movieIndex = (mySpriteY + row) * Movie::WIDTH + mySpriteX + col;
+
+            Movie::movieArray[movieIndex] = ch;
+        }
+    }
 }
 
 /**
@@ -91,6 +108,15 @@ void Movie::display()
     // copy  them to the right place on the screen, using the ncurses function
     // mvaddch: mvaddch(r, c, char) puts the character char at row r, column c
     // of the screen.
+
+    for(size_t row = 0; row < Movie::HEIGHT; ++row)
+    {
+        for(size_t col = 0; col < Movie::WIDTH; ++col)
+        {
+            char ch = Movie::movieArray[row * Movie::WIDTH + col];
+            mvaddch(row, col, ch);
+        }
+    }
 
 }
 
