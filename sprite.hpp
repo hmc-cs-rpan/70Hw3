@@ -69,12 +69,20 @@ public:
      */
     void setLocation(size_t x, size_t y);
 
+    /**
+     * \brief Modifer function to change sprite scrolling status
+     * \ post Changes sprite's scrolling status to specified input
+     * \ return none
+     */
+     void setScrolling(bool flag);
+
 private:
     // Current location of the sprite on the screen in (x, y) form.
     size_t xvalue = 0;
     size_t yvalue = 0;
     // Characters to display on the screen for this sprite
     char spriteArray[WIDTH*HEIGHT];
+    bool shouldScroll_ = true;
 
 };
 

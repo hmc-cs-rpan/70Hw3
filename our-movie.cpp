@@ -21,7 +21,7 @@ void makeOurMovie()
 {
 	Sprite mySprite;
 
-	mySprite.loadImage("img/mystery1.txt");
+	mySprite.loadImage("img/pacman.txt");
 	mySprite.setLocation(30,10);
 
 	Movie myMovie;

@@ -35,8 +35,11 @@ void Sprite::loadImage(const std::string& fname)
 
 
 void Sprite::update() 
-{
-    // Does nothing for now.
+{   
+    if(Sprite::shouldScroll_)
+    {
+        Sprite::xvalue +=1;
+    }
 }
 
 size_t Sprite::getXLocation()
@@ -59,4 +62,9 @@ void Sprite::setLocation(size_t x, size_t y)
 {
     Sprite::xvalue = x;
     Sprite::yvalue = y;
+}
+
+void Sprite::setScrolling(bool flag)
+{
+    Sprite::shouldScroll_ = flag;
 }

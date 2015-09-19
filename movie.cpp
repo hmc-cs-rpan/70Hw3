@@ -29,6 +29,7 @@ void Movie::updateContents()
     // Loop through all of the characters in the sprite and copy them to 
     // the right spot in the movie's character array.
 
+    mySprite_.update();
     size_t mySpriteX = mySprite_.getXLocation();
     size_t mySpriteY = mySprite_.getYLocation();
 
@@ -37,7 +38,7 @@ void Movie::updateContents()
         for(size_t col = 0; col < Sprite::WIDTH; ++col)
         {
             char ch = mySprite_.getCharAt(row, col);
-            size_t movieIndex = (mySpriteY + row) * Movie::WIDTH + mySpriteX + col;
+            size_t movieIndex = (mySpriteY + row) * Movie::WIDTH + (mySpriteX + col) % Movie::WIDTH;
 
             Movie::movieArray[movieIndex] = ch;
         }
