@@ -1,13 +1,9 @@
 /**
  * \file movie.cpp
- * \author CS 70 Provided Code
+ * \author Daniel Zhang, Ricky Pan, CS 70 Provided Code
+   =========
  *
  * \brief Implements the Movie class
- *
- * \details
- *
- * \remarks
- *
  */
 
 #include <iostream>
@@ -21,15 +17,18 @@ using namespace std;
 
 void Movie::updateContents() 
 {
-    // Clear the character array by writing a space to each element
+    // Clears the character array by writing a space to each element
     for(size_t i = 0; i < Movie::WIDTH * Movie::HEIGHT; ++i)
     {
         Movie::movieArray[i] = ' ';
     }
-    // Loop through all of the characters in the sprite and copy them to 
+    
+    // Updates the sprite's location if shouldScroll_ is true
+    mySprite_.update();
+
+    // Loops through all of the characters in the sprite and copies them to 
     // the right spot in the movie's character array.
 
-    mySprite_.update();
     size_t mySpriteX = mySprite_.getXLocation();
     size_t mySpriteY = mySprite_.getYLocation();
 
@@ -38,7 +37,14 @@ void Movie::updateContents()
         for(size_t col = 0; col < Sprite::WIDTH; ++col)
         {
             char ch = mySprite_.getCharAt(row, col);
-            size_t movieIndex = (mySpriteY + row) * Movie::WIDTH + (mySpriteX + col) % Movie::WIDTH;
+            
+            // movieRow * Movie::WIDTH returns the starting index of a given row
+            // in movieArray. We find the correct index by adding movieCol.
+
+            size_t movieRow = mySpriteY + row;
+            size_t movieCol = (mySpriteX + col) % Movie::WIDTH;
+
+            size_t movieIndex =  movieRow * Movie::WIDTH + movieCol;
 
             Movie::movieArray[movieIndex] = ch;
         }
@@ -105,8 +111,8 @@ void Movie::play()
 
 void Movie::display() 
 {
-    // Loop through all of the characters in the movie's character array and
-    // copy  them to the right place on the screen, using the ncurses function
+    // Loops through all of the characters in the movie's character array and
+    // copies them to the right place on the screen, using the ncurses function
     // mvaddch: mvaddch(r, c, char) puts the character char at row r, column c
     // of the screen.
 

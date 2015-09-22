@@ -1,14 +1,9 @@
 /**
- * \file our-movie.cpp
- * \author CS 70 Provided Code
- *
+ * \file our-movie.hpp
+ * \author Daniel Zhang, Ricky Pan, CS 70 Provided Code
+   =========
  * \brief Provides the main() function for running one of the movies
  * defined in movieScripts.cpp.
- *
- * \details
- *
- * \remarks
- *
  */
 
 #include <iostream>
@@ -17,17 +12,20 @@
 
 using namespace std;
 
+// Creates and loads a sprite from our pacman file.
+// Creates a movie and adds the sprite.  Then plays the movie.
+// Sprite should move across the screen until the user presses "q"
 void makeOurMovie() 
 {
-	Sprite mySprite;
+    Sprite mySprite;
 
-	mySprite.loadImage("img/pacman.txt");
-	mySprite.setLocation(30,10);
+    mySprite.loadImage("img/pacman.txt");
+    mySprite.setLocation(30,10);
 
-	Movie myMovie;
-	myMovie.addSprite(mySprite);
+    Movie myMovie;
+    myMovie.addSprite(mySprite);
 
-	myMovie.play();
+    myMovie.play();
 
 }
 

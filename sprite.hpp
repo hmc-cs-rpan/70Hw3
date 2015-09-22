@@ -1,9 +1,9 @@
-/* sprite.hpp
+/**
+ * \file sprite.hpp
+ * \author Daniel Zhang, Ricky Pan, CS 70 Provided Code
    =========
-
    interface definition for the Sprite class. Defines the behavior
    of a single asciimation 'character'
-
  */
 
 #ifndef SPRITE_HPP_INCLUDED
@@ -31,15 +31,16 @@ public:
     static const size_t HEIGHT = 10;
 
     /**
-     * \brief Could modify the contents or location of a sprite, but doesn't
-     *        yet.
-     * \post The sprite is unmodified.
+     * \brief Modifies the location of the sprite by adding 1 to xvalue
+     * if shouldScroll_ is true
+     * 
+     * \post The sprite may have moved right.
      */
     void update();
 
     /**
      * \brief Reads a text file containing the characters for a sprite.
-     * \post Should populate the sprite's character array, but doesn't yet.
+     * \post populates the sprite's character array.
      */
     void loadImage(const std::string& fname);
 
@@ -63,16 +64,15 @@ public:
 
     /**
      * \brief Modifer function to change the sprite's location.
-     * \ pre Sprite has an arbitrary location.
-     * \ post Sprite's location changes to user-specified location.
-     * \ return none
+     * \post Sprite's location changes to user-specified location.
+     * \return none
      */
     void setLocation(size_t x, size_t y);
 
     /**
      * \brief Modifer function to change sprite scrolling status
-     * \ post Changes sprite's scrolling status to specified input
-     * \ return none
+     * \post Changes sprite's scrolling status to specified input
+     * \return none
      */
      void setScrolling(bool flag);
 
@@ -80,8 +80,11 @@ private:
     // Current location of the sprite on the screen in (x, y) form.
     size_t xvalue = 0;
     size_t yvalue = 0;
+
     // Characters to display on the screen for this sprite
     char spriteArray[WIDTH*HEIGHT];
+
+    // Boolean that tells whether the sprite is moving.
     bool shouldScroll_ = true;
 
 };

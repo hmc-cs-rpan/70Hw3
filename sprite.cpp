@@ -1,13 +1,8 @@
 /**
  * \file sprite.cpp
- * \author CS 70 Provided Code
+ * \author Daniel Zhang, Ricky Pan, CS 70 Provided Code
  *
  * \brief Implements the Sprite class
- *
- * \details
- *
- * \remarks
- *
  */
 
 #include <cstddef>
@@ -21,13 +16,15 @@ void Sprite::loadImage(const std::string& fname)
 {
     ifstream inputFile{fname};
     
-    // Read in characters from the text file, 
-    // copying them into the character array.
+    // Reads in characters from the text file, 
+    // copies them into the character array.
     char ch;
-    for (size_t i = 0; i < Sprite::WIDTH * Sprite::HEIGHT; ++i) {
+    for (size_t i = 0; i < Sprite::WIDTH * Sprite::HEIGHT; ++i)
+    {
         ch = inputFile.get();
-        if (inputFile.good()) {
-            Sprite::spriteArray[i] = ch;
+        if (inputFile.good())
+        {
+            Sprite::spriteArray[i] = ch;        // Populates spriteArray
         }
     }
     inputFile.close();
@@ -54,8 +51,8 @@ size_t Sprite::getYLocation()
 
 char Sprite::getCharAt(size_t row, size_t col)
 {
-    size_t location = row * Sprite::WIDTH + col;
-    return Sprite::spriteArray[location];
+    size_t index = row * Sprite::WIDTH + col;
+    return Sprite::spriteArray[index];
 }
 
 void Sprite::setLocation(size_t x, size_t y)

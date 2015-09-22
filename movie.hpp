@@ -1,8 +1,9 @@
-/* movie.hpp
+/**
+ * \file movie.hpp
+ * \author Daniel Zhang, Ricky Pan, CS 70 Provided Code
    =========
-
    Interface definition for the Movie class, which handles the main screen
-   and coordination of an asciimation movie.
+   and coordination of an ASCIImation movie.
 
  */
 #ifndef MOVIE_HPP_INCLUDED
@@ -22,6 +23,8 @@
  */
 class Movie {
 public:
+
+    // Size of the screen, in characters
     static const size_t WIDTH = 80;
     static const size_t HEIGHT = 40;
     
@@ -52,8 +55,10 @@ public:
     void addSprite(Sprite& newSprite);
 
 private:
+
     // The sprite to display in this movie.
     Sprite mySprite_;
+    
     // The characters to display on the screen.
     char movieArray[WIDTH*HEIGHT];
 };
