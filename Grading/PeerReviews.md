@@ -1,7 +1,7 @@
 For this assignment, please peer review the submissions of the following teams:
-* [dlan_srsrinivasan](https://github.com/hmc-cs70-fall2015/Homework-3_dlan_srsrinivasan/issues/3)
-* [dshim_lburke](https://github.com/hmc-cs70-fall2015/Homework-3_dshim_lburke/issues/3)
-* [gdiehl_mnaidu](https://github.com/hmc-cs70-fall2015/Homework-3_gdiehl_mnaidu/issues/3)
+* [dlan_srsrinivasan](https://github.com/hmc-cs70-fall2015/Homework-3_dlan_srsrinivasan/issues/5)
+* [dshim_lburke](https://github.com/hmc-cs70-fall2015/Homework-3_dshim_lburke/issues/5)
+* [gdiehl_mnaidu](https://github.com/hmc-cs70-fall2015/Homework-3_gdiehl_mnaidu/issues/5)
 
 Remember to give thoughtful, constructive feedback. That means:
 * Include something you liked in addition to things that you think could have been improved.
